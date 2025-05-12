@@ -10,6 +10,15 @@ This repository contains demo folders and source code for the development and le
 
 ## 🖼️ Previews
 
+### Print Hello ASL! & Date in:
+- Python
+- Golang
+- NodeJS
+- Perl 
+- PHP
+
+<img width="800" alt="Image" src="https://github.com/user-attachments/assets/030e49ba-7ced-4534-a13b-b720f791c5c8" />
+
 ### Wordpress
 
 <img width="600" alt="Image" src="https://github.com/user-attachments/assets/57feb33f-94e2-43a3-b953-3c2ae8903688" />
