@@ -10,12 +10,3 @@ services:
     environment:
       - NODE_ENV=development
     command: npm start
-    develop:
-      watch:
-        - action: sync
-          path: ./web
-          target: /src/web
-          ignore:
-            - node_modules/
-        - action: rebuild
-          path: package.json
