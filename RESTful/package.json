@@ -1,0 +1,13 @@
+{
+  "name": "contacts-api",
+  "version": "1.0.0",
+  "description": "WDV442 RESTful Contacts API",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@jworkman-fs/asl": "^1.2.43",
+    "express": "^5.1.0"
+  }
+}
