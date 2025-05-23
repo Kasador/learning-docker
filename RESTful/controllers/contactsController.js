@@ -58,7 +58,7 @@ const getUnpaginatedContacts = (req, res) => { // all
   }
 };
 
-const getContactById = (req, res) => {
+const getContactById = (req, res) => { // :id
   try {
     // const contacts = ContactModel.index();
     const contactId = req.params.id;
