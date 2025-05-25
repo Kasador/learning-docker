@@ -26,9 +26,16 @@ const show = (req, res) => {
 }
 
 // Create a new resource
-const create = (req, res) => {
+const create = async (req, res) => {
   // Issue a redirect with a success 2xx code
-  res.redirect(`/stars`, 201)
+  const stars = await Star.create(req.body);
+  res.status(201).json({
+    success: true,
+    data: stars,
+    message: `Created a new star!`
+  });
+
+  res.redirect(201, `/stars`);
 }
 
 // Update an existing resource

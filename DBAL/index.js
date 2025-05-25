@@ -6,6 +6,9 @@ const app           = express()
 
 // Load in our RESTful routers
 const routers = require('./routers/index.js')
+const bodyParser = require('body-parser')
+
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // Home page welcome middleware
 app.get('/', (req, res) => {
