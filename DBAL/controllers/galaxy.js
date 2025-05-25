@@ -1,7 +1,26 @@
+const { Galaxy } = require('../models/index.js');
+
 // Show all resources
-const index = (req, res) => {
+const index = async (req, res) => {
   // Respond with an array and 2xx status code
-  res.status(200).json([`Galaxy#index`])
+  try {
+    const galaxies = await Galaxy.findAll();
+
+    res.status(200).json({
+      success: true,
+      data: galaxies,
+      message: `All galaxies found!`
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: `No galaxies found!`
+    });
+  }
+
+  // if (!galaxies) {
+  //   throw new Error;
+  // }
 }
 
 // Show resource

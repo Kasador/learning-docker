@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      // https://sequelize.org/docs/v6/core-concepts/assocs/
+      Galaxy.hasMany(models.Star);
     }
   }
   Galaxy.init({

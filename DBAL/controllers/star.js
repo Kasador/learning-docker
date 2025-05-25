@@ -1,7 +1,22 @@
+const { Star } = require("../models/index.js");
+
 // Show all resources
-const index = (req, res) => {
+const index = async (req, res) => {
   // Respond with an array and 2xx status code
-  res.status(200).json([`Star#index`])
+  try {
+    const stars = await Star.findAll();
+
+    res.status(200).json({
+      success: true,
+      data: stars,
+      message: `All stars found!`
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: `No stars found!`
+    });
+  }
 }
 
 // Show resource
