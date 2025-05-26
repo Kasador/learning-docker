@@ -12,9 +12,18 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Home page welcome middleware
 app.get('/', (req, res) => {
-  res
-    .status(200)
-    .send('Welcome to Star Tracker Library');
+res
+  .status(200)
+  .set('Content-Type', 'text/plain')
+  .send(`
+    Welcome to Star Tracker Library! 🚀
+
+    Hit the different endpoints by visiting:
+
+    - /galaxies
+    - /stars
+    - /planets
+  `);
 })
 
 // Register our RESTful routers with our "app"
