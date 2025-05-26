@@ -12,15 +12,11 @@ const index = async (req, res) => {
       message: `All galaxies found!`
     });
   } catch (error) {
-    res.status(500).json({
+    res.status(404).json({
       success: false,
       message: `No galaxies found!`
     });
   }
-
-  // if (!galaxies) {
-  //   throw new Error;
-  // }
 }
 
 // Show resource
@@ -30,9 +26,17 @@ const show = (req, res) => {
 }
 
 // Create a new resource
-const create = (req, res) => {
+const create = async (req, res) => {
   // Issue a redirect with a success 2xx code
-  res.redirect(`/galaxies`, 201)
+  const galaxy = await Galaxy.create(req.body);
+
+  res.status(201).json({
+    success: true,
+    data: galaxy,
+    message: `Created a new galaxy!`
+  });
+
+  // res.redirect(`/galaxies`, 201)
 }
 
 // Update an existing resource

@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.get('/', (req, res) => {
   res
     .status(200)
-    .send('Welcome to Star Tracker Library')
+    .send('Welcome to Star Tracker Library');
 })
 
 // Register our RESTful routers with our "app"

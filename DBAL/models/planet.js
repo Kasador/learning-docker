@@ -13,7 +13,8 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       // https://sequelize.org/docs/v6/core-concepts/assocs/
       Planet.belongsToMany(models.Star, {
-        through: "StarsPlanets"
+        through: "StarsPlanets",
+        foreignKey: 'planetId'
       });
     }
   }

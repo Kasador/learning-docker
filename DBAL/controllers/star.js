@@ -5,6 +5,7 @@ const index = async (req, res) => {
   // Respond with an array and 2xx status code
   try {
     const stars = await Star.findAll();
+    console.log("Stars:", stars);
 
     res.status(200).json({
       success: true,
@@ -12,9 +13,9 @@ const index = async (req, res) => {
       message: `All stars found!`
     });
   } catch (error) {
-    res.status(500).json({
+    res.status(404).json({
       success: false,
-      message: `No stars found!`
+      message: `No stars found! ${error}`
     });
   }
 }
@@ -29,13 +30,16 @@ const show = (req, res) => {
 const create = async (req, res) => {
   // Issue a redirect with a success 2xx code
   const stars = await Star.create(req.body);
+  // stars.addStar(stars)
+
   res.status(201).json({
     success: true,
     data: stars,
     message: `Created a new star!`
   });
+  // res.status(201).json(stars);
 
-  res.redirect(201, `/stars`);
+  // res.redirect(201, `/stars`);
 }
 
 // Update an existing resource

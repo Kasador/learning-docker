@@ -12,7 +12,7 @@ const index = async (req, res) => {
       message: `All planets found!`
     });
   } catch (error) {
-    res.status(500).json({
+    res.status(404).json({
       success: false,
       message: `No planets found!`
     });
@@ -26,9 +26,17 @@ const show = (req, res) => {
 }
 
 // Create a new resource
-const create = (req, res) => {
+const create = async (req, res) => {
   // Issue a redirect with a success 2xx code
-  res.redirect(`/planets`, 201)
+  const planet = await Planet.create(req.body);
+
+  res.status(201).json({
+    success: true,
+    data: planet,
+    message: `Created a new planet!`
+  });
+
+  // res.redirect(`/planets`, 201)
 }
 
 // Update an existing resource
