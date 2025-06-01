@@ -35,7 +35,7 @@ app.get('/', (req, res) => {
 //     - /planets
 //   `);
 
-  res.render('home.html.twig');
+  res.render('home.html.twig', { name: 'test' });
 })
 
 // Register our RESTful routers with our "app"
