@@ -7,11 +7,17 @@ const index = async (req, res) => { // GET ALL
       include: Star // include all stars inside this galaxy
     });
 
-    res.status(200).json({
-      success: true,
-      data: galaxies,
-      message: `All galaxies found!`
-    });
+    // res.status(200).json({
+    //   success: true,
+    //   data: galaxies,
+    //   message: `All galaxies found!`
+    // });
+    res.render('Galaxy/index.html.twig', {
+      galaxies,
+      year: new Date().getFullYear(),
+      author: "Hunter Steven Shaw"
+    })
+    console.log(galaxies)
   } catch (error) {
     res.status(500).json({
       success: false,
