@@ -20,6 +20,10 @@ app.set('views', './templates');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
+const fileUpload = require('express-fileupload')
+app.use(fileUpload())
+
+app.use(express.static('public'));
 // Home page welcome middleware
 app.get('/', (req, res) => {
 // res
@@ -35,7 +39,7 @@ app.get('/', (req, res) => {
 //     - /planets
 //   `);
 
-  res.render('home.html.twig', { name: 'test' });
+  res.render('home.html.twig', { title: 'Star Tracker Library' });
 })
 
 // Register our RESTful routers with our "app"
