@@ -39,7 +39,11 @@ app.get('/', (req, res) => {
 //     - /planets
 //   `);
 
-  res.render('home.html.twig', { title: 'Star Tracker Library' });
+  res.render('home.html.twig', { 
+    title: 'Star Tracker Library',
+    year: new Date().getFullYear(),
+    author: "Hunter Steven Shaw"
+  });
 })
 
 // Register our RESTful routers with our "app"

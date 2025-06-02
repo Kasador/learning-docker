@@ -13,11 +13,17 @@ const index = async (req, res) => { // GET ALL
       ]
     });
 
-    res.status(200).json({
-      success: true,
-      data: stars,
-      message: `All stars found!`
-    });
+    // res.status(200).json({
+    //   success: true,
+    //   data: stars,
+    //   message: `All stars found!`
+    // });
+    res.render('Star/index.html.twig', {
+      stars,
+      year: new Date().getFullYear(),
+      author: "Hunter Steven Shaw"
+    })
+    console.log(stars)
   } catch (error) {
     res.status(500).json({
       success: false,

@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>
-        {% block page_title %}Page Title{% endblock %}
+        {% block page_title %}Home{% endblock %}
     </title>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
@@ -11,6 +11,6 @@
 
     {% block main %}{% endblock %}
 
-    {% include "partials/_footer.html.twig" %}
+    {% include "partials/_footer.html.twig" with {"year": year, "author": author} %}
 </body>
 </html>

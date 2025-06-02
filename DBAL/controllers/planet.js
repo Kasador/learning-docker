@@ -12,11 +12,18 @@ const index = async (req, res) => { // GET ALL
       }
     });
 
-    res.status(200).json({
-      success: true,
-      data: planets,
-      message: `All planets found!`
-    });
+    // res.status(200).json({
+    //   success: true,
+    //   data: planets,
+    //   message: `All planets found!`
+    // });
+
+    res.render('Planet/index.html.twig', {
+      planets,
+      year: new Date().getFullYear(),
+      author: "Hunter Steven Shaw"
+    })
+    console.log(planets)
   } catch (error) {
     res.status(500).json({
       success: false,
