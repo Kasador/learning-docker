@@ -11,6 +11,6 @@
 
     {% block main %}{% endblock %}
 
-    {% include "partials/_footer.html.twig" %}
+    {% include "partials/_footer.html.twig" with {"year": year, "author": author} %}
 </body>
 </html>

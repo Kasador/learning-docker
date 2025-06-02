@@ -4,6 +4,7 @@ html, body {
     padding: 0;
     margin: 0;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: antiquewhite;
 }
 header {
     background-color: #555;
@@ -19,6 +20,9 @@ header {
 nav {
     display: flex;
 }
+nav > li {
+    padding: 10px;
+}
 nav > li > a {
     text-decoration: none;
     color: whitesmoke;
@@ -31,4 +35,31 @@ nav > li > a:hover {
 #home_title {
     padding: 15px;
     text-align: center;
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+    background-color: #999;
+    color: whitesmoke;
+    border-bottom: #222;
+    border-bottom-width: 10px;
+    border-bottom-style: solid;
+    /* padding: 10px; */
+    /* padding-left: 20px; */
+    margin: 0;
+    list-style-type: none;
+    font-size: 1.5rem;
+}
+#footer_title {
+    padding: 5px;
+    padding-left: 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+#shaw {
+    color: white;
+    font-style: oblique;
 }
