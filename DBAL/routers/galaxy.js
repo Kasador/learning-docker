@@ -8,6 +8,9 @@ const galaxyCtlr = require(`../controllers/galaxy.js`)
 const router = new express.Router()
 
 // RESTful resource mappings
+router.get(`/new`, galaxyCtlr.form)
+router.get(`/:id/edit`, galaxyCtlr.form)
+
 router.get(`/`, galaxyCtlr.index)
 router.post(`/`, galaxyCtlr.create)
 router.get(`/:id`, galaxyCtlr.show) 

@@ -7,7 +7,7 @@
 
 <ul>
     {% for planet in planets %}
-    <li># {{ planet.id}} - {{ planet.name}}
+    <li># {{ planet.id}}) Name: {{ planet.name }} | Size: {{ planet.size }} | Description: {{ planet.description }}
         <a href="/planets/{{ planet.id }}/edit">Edit</a>
         <a href="/planets/{{ planet.id }}/delete">Delete</a>
         <a href="/planets/{{ planet.id }}/">View</a>
