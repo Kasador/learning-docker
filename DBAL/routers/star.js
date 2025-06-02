@@ -8,6 +8,10 @@ const starCtlr = require(`../controllers/star.js`)
 const router = new express.Router()
 
 // RESTful resource mappings
+// added routes 
+router.get(`/new`, starCtlr.form)
+router.get(`/:id/edit`, starCtlr.form)
+
 router.get(`/`, starCtlr.index)
 router.post(`/`, starCtlr.create)
 router.get(`/:id`, starCtlr.show) 

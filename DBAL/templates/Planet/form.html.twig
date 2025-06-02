@@ -3,10 +3,10 @@
 {% block main %}
     {% if data.id is not empty %}
         <h1>Editing Details For #{{ data.id }}</h1>
-        <form action="/stars/{{ data.id }}" method="POST">
+        <form action="/planets/{{ data.id }}" method="POST">
     {% else %}
-        <h1>Creating New Star</h1>
-        <form action="/stars" method="POST">
+        <h1>Creating New Planet</h1>
+        <form action="/planets" method="POST">
     {% endif %}
 
             <div>
@@ -24,17 +24,12 @@
                 <textarea name="description" required>{{ data.description }}</textarea>
             </div>
 
-            {# <div>
-                <label>Galaxy ID:</label>
-                <input type="number" name="galaxyId" value="{{ data.galaxyId }}" required />
-            </div> #}
-
             <div>
                 <button type="submit">
                     {% if data.id is not empty %}
-                        Update Star
+                        Update Planet
                     {% else %}
-                        Create Star
+                        Create Planet
                     {% endif %}
                 </button>
             </div>
@@ -42,11 +37,11 @@
 
     {% if data.id is not empty %}
         <div>
-            <a href="/stars/">Cancel</a>
+            <a href="/planets/">Cancel</a>
         </div>
     {% else %}
         <div>
-            <a href="/stars">Cancel</a>
+            <a href="/planets">Cancel</a>
         </div>
     {% endif %}
 

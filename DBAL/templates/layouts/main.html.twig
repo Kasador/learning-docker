@@ -8,9 +8,9 @@
 </head>
 <body>
     {% include "partials/_header.html.twig" %}
-
+    <main>
     {% block main %}{% endblock %}
-
+    </main>
     {% include "partials/_footer.html.twig" with {"year": year, "author": author} %}
 </body>
 </html>

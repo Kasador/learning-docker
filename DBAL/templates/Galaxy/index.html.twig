@@ -7,7 +7,7 @@
 
 <ul>
     {% for galaxy in galaxies %}
-    <li># {{ galaxy.id}} - {{ galaxy.name}}
+    <li># {{ galaxy.id}}) Name: {{ galaxy.name }} | Size: {{ galaxy.size }} | Description: {{ galaxy.description }}
         <a href="/galaxies/{{ galaxy.id }}/edit">Edit</a>
         <a href="/galaxies/{{ galaxy.id }}/delete">Delete</a>
         <a href="/galaxies/{{ galaxy.id }}/">View</a>

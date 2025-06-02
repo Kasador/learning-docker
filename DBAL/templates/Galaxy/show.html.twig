@@ -1,11 +1,11 @@
 {% extends "layouts/main.html.twig" %}
 
-{% block page_title %}Star Details{% endblock %}
+{% block page_title %}Galaxy Details{% endblock %}
 
 {% block main %}
-    <h1>Star Details</h1>
+    <h1>Galaxy Details</h1>
     
-    <div class="star-details">
+    <div class="galaxy-details">
         <h2>{{ data.name }}</h2>
         
         <div class="detail-row">
@@ -26,9 +26,9 @@
     </div>
 
     <div class="actions">
-        <a href="/stars/{{ data.id }}/edit">Edit Star</a>
-        <a href="/stars/{{ data.id }}/delete">Delete Star</a>
-        <a href="/stars">Back to All Stars</a>
+        <a href="/galaxies/{{ data.id }}/edit">Edit Galaxy</a>
+        <a href="/galaxies/{{ data.id }}/delete">Delete Galaxy</a>
+        <a href="/galaxies">Back to All Galaxies</a>
     </div>
 
 {% endblock %}

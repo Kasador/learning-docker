@@ -7,7 +7,7 @@
 
 <ul>
     {% for star in stars %}
-    <li># {{ star.id}} - {{ star.name}}
+    <li># {{ star.id}}) Name: {{ star.name }} | Size: {{ star.size }} | Description: {{ star.description }}
         <a href="/stars/{{ star.id }}/edit">Edit</a>
         <a href="/stars/{{ star.id }}/delete">Delete</a>
         <a href="/stars/{{ star.id }}/">View</a>

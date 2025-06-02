@@ -8,6 +8,9 @@ const planetCtlr = require(`../controllers/planet.js`)
 const router = new express.Router()
 
 // RESTful resource mappings
+router.get(`/new`, planetCtlr.form)
+router.get(`/:id/edit`, planetCtlr.form)
+
 router.get(`/`, planetCtlr.index)
 router.post(`/`, planetCtlr.create)
 router.get(`/:id`, planetCtlr.show) 

@@ -44,17 +44,10 @@ const show = async (req, res) => { // GET by ID
       }
     });
 
-    if (!planet) {
-      return res.status(404).json({
-        success: false,
-        message: `Planet not found!`
-      });
-    }
-
-    res.status(200).json({
-      success: true,
-      data: planet,
-      message: `Planet found!`
+    res.render('Planet/show.html.twig', { 
+        data: planet,
+        year: new Date().getFullYear(),
+        author: "Hunter Steven Shaw"
     });
   } catch (error) {
     res.status(500).json({
@@ -76,10 +69,15 @@ const create = async (req, res) => { // POST
 
     await planet.addStars(selectedStars);
 
-    res.status(201).json({
-      success: true,
-      data: planet,
-      message: `Created a new planet and linked to ${selectedStars.length} star(s)!`
+    // res.status(201).json({
+    //   success: true,
+    //   data: planet,
+    //   message: `Created a new planet and linked to ${selectedStars.length} star(s)!`
+    // });
+     res.render('Planet/show.html.twig', { 
+        data: planet,
+        year: new Date().getFullYear(),
+        author: "Hunter Steven Shaw"
     });
   } catch (error) {
     res.status(500).json({
@@ -139,4 +137,13 @@ const remove = async (req, res) => { // DELETE by ID
   }
 };
 
-module.exports = { index, show, create, update, remove };
+const form = async (req, res) => {
+    const planet = (typeof req.params.id !== "undefined") ? await Planet.findByPk(req.params.id) : new Planet()
+    res.render('Planet/form.html.twig', { 
+        data: planet,
+        year: new Date().getFullYear(),
+        author: "Hunter Steven Shaw"
+    });
+}
+
+module.exports = { index, show, create, update, remove, form, };

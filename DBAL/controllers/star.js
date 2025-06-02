@@ -32,48 +32,20 @@ const index = async (req, res) => { // GET ALL
   }
 };
 
-// Show single resource
-const show = async (req, res) => { // GET by ID
-  try {
-    const star = await Star.findByPk(req.params.id, {
-      include: [
-        {
-          model: Planet,
-          through: { attributes: [] } // hide join table data
-        },
-        Galaxy // include linked galaxy
-      ]
-    });
-
-    if (!star) {
-      return res.status(404).json({
-        success: false,
-        message: `Star not found!`
-      });
-    }
-
-    res.status(200).json({
-      success: true,
-      data: star,
-      message: `Star found!`
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: `Failed to retrieve star.`
-    });
-  }
-};
-
 // Create a new resource
 const create = async (req, res) => { // POST
   try {
     const star = await Star.create(req.body); // create new star
 
-    res.status(201).json({
-      success: true,
+    // res.status(201).json({
+    //   success: true,
+    //   data: star,
+    //   message: `Created a new star!`
+    // });
+    res.render('Star/index.html.twig', {
       data: star,
-      message: `Created a new star!`
+      year: new Date().getFullYear(),
+      author: "Hunter Steven Shaw"
     });
   } catch (error) {
     res.status(500).json({
@@ -146,4 +118,62 @@ const remove = async (req, res) => { // DELETE by ID
   }
 };
 
-module.exports = { index, show, create, update, remove };
+const form = async (req, res) => {
+    const star = (typeof req.params.id !== "undefined") ? await Star.findByPk(req.params.id) : new Star()
+    res.render('Star/form.html.twig', { 
+        data: star,
+        year: new Date().getFullYear(),
+        author: "Hunter Steven Shaw"
+    });
+}
+
+// const show = async (req, res) => {
+//     const star = await Star.findByPk(req.params.id)
+
+//     // res.status(200).json(star)
+//     res.render('Star/show.html.twig', { 
+//         data: star,
+//         year: new Date().getFullYear(),
+//         author: "Hunter Steven Shaw"
+//     })
+// }
+
+// Show single resource
+const show = async (req, res) => { // GET by ID
+  try {
+    const star = await Star.findByPk(req.params.id, {
+      include: [
+        {
+          model: Planet,
+          through: { attributes: [] } // hide join table data
+        },
+        Galaxy // include linked galaxy
+      ]
+    });
+
+    // if (!star) {
+    //   return res.status(404).json({
+    //     success: false,
+    //     message: `Star not found!`
+    //   });
+    // }
+
+    // res.status(200).json({
+    //   success: true,
+    //   data: star,
+    //   message: `Star found!`
+    // });
+     res.render('Star/show.html.twig', { 
+        data: star,
+        year: new Date().getFullYear(),
+        author: "Hunter Steven Shaw"
+    })
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: `Failed to retrieve star.`
+    });
+  }
+};
+
+module.exports = { index, show, create, update, remove, form, show };
